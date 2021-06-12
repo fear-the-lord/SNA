@@ -40,12 +40,12 @@ if __name__ == "__main__":
     
     # G.add_nodes_from([i for i in range(1, n+1)])
 
-    # Hard Coding positions
-    G.add_node(1,pos=(1,3))
+    # Hard Coding positions for better presentation
+    G.add_node(1,pos=(2,3))
     G.add_node(2,pos=(1,2))
-    G.add_node(3,pos=(1,1))
+    G.add_node(3,pos=(2,1))
     G.add_node(4,pos=(4,3))
-    G.add_node(5,pos=(4,2))
+    G.add_node(5,pos=(5,2))
     G.add_node(6,pos=(4,1))
   
     mapping = {}
@@ -85,7 +85,10 @@ if __name__ == "__main__":
 
     edge_labels = nx.get_edge_attributes(G, 'sign')
     # pos = nx.circular_layout(G)
-    pos = nx.spring_layout(G)
+    # pos = nx.spring_layout(G)
+
+    # Getting positions from the nodes
+    pos=nx.get_node_attributes(G,'pos')
 
     nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
     nx.draw_networkx_edge_labels(G, pos, edge_labels = edge_labels, font_size = 15)
