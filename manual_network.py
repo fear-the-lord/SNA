@@ -95,21 +95,25 @@ if __name__ == "__main__":
     nx.draw_networkx_edges(G, pos, edgelist = Friends, edge_color="g")
     nx.draw_networkx_edges(G, pos, edgelist = Enemies, edge_color="r")
     
+    # plt.savefig("network.png", format="PNG")
     plt.show()
-    
+    '''
     # # Uncomment this to see individual triangle states
-    # plt.pause(10)
+    plt.pause(10)
 
-    # for i in range(len(stable)):
-    #     temp = [tuple(x) for x in itertools.combinations(stable[i], 2)]
-    #     plt.cla()
-    #     nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
-    #     nx.draw_networkx_edges(G, pos, edgelist = temp, edge_color="g", width = 6 )
-    #     plt.pause(2)
-
+    for i in range(len(stable)):
+        temp = [tuple(x) for x in itertools.combinations(stable[i], 2)]
+        plt.cla()
+        nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
+        nx.draw_networkx_edges(G, pos, edgelist = temp, edge_color="g", width = 6 )
+        # plt.savefig("stable{}.png".format(i), format="PNG")
+        plt.pause(2)
+    
+    plt.show()
     # for i in range(len(unstable)):
     #     temp = [tuple(x) for x in itertools.combinations(unstable[i], 2)]
     #     plt.cla()
     #     nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
     #     nx.draw_networkx_edges(G, pos, edgelist = temp, edge_color="r", width = 6)
     #     plt.pause(2)
+    '''
