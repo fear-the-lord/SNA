@@ -39,6 +39,7 @@ if __name__ == "__main__":
     n = 6
     
     # G.add_nodes_from([i for i in range(1, n+1)])
+    # mapping = {1:'Alexandra',2:'Anterim', 3:'Bercy',4:'Bearland',5:'Eplex', 6:'Ron'}
 
     # Hard Coding positions for better presentation
     G.add_node(1,pos=(2,3))
@@ -71,6 +72,7 @@ if __name__ == "__main__":
     G.add_edge( 'Node5', 'Node6', sign ='+')
     
     # # Random signs
+    # G = nx.relabel_nodes(G, mapping)
     # signs = ['+', '-']
     # for i in G.nodes():
     #     for j in G.nodes():
@@ -85,7 +87,7 @@ if __name__ == "__main__":
 
     edge_labels = nx.get_edge_attributes(G, 'sign')
     # pos = nx.circular_layout(G)
-    # pos = nx.spring_layout(G)
+    pos = nx.spring_layout(G)
 
     # Getting positions from the nodes
     pos=nx.get_node_attributes(G,'pos')
@@ -100,23 +102,23 @@ if __name__ == "__main__":
     
     # plt.savefig("network.png", format="PNG")
     plt.show()
-    '''
-    # # Uncomment this to see individual triangle states
-    plt.pause(10)
-
-    for i in range(len(stable)):
-        temp = [tuple(x) for x in itertools.combinations(stable[i], 2)]
-        plt.cla()
-        nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
-        nx.draw_networkx_edges(G, pos, edgelist = temp, edge_color="g", width = 6 )
-        # plt.savefig("stable{}.png".format(i), format="PNG")
-        plt.pause(2)
     
-    plt.show()
+    # # Uncomment this to see individual triangle states
+    # plt.pause(10)
+
+    # for i in range(len(stable)):
+    #     temp = [tuple(x) for x in itertools.combinations(stable[i], 2)]
+    #     plt.cla()
+    #     nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
+    #     nx.draw_networkx_edges(G, pos, edgelist = temp, edge_color="g", width = 6 )
+    #     # plt.savefig("stable{}.png".format(i), format="PNG")
+    #     plt.pause(2)
+    
+    # plt.show()
     # for i in range(len(unstable)):
     #     temp = [tuple(x) for x in itertools.combinations(unstable[i], 2)]
     #     plt.cla()
     #     nx.draw(G, pos, node_size = 2000, with_labels = True, font_size = 10)
     #     nx.draw_networkx_edges(G, pos, edgelist = temp, edge_color="r", width = 6)
     #     plt.pause(2)
-    '''
+    
